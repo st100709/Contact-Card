@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Contact Card Project</title>
+	<link rel="stylesheet" type="text/css" href="contact card.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+				$(".card span").hide();
+				$(".card").click(function(){
+				$(this).children("span").show();
+				$(this).children("h2").hide();
+				$(this).children("p").hide();
+			});
+				$("button").click(function(){
+				var fname = $("#fname").val();
+				var lname = $("#lname").val();
+				var desc = $("#desc").val();
+				var newcard = "<div class='card'>";
+				newcard += "<h2>"+ fname + "</h2>";
+				newcard += "<h2>" + lname + "</h2>";
+				newcard += "<span>" + desc + "</span>";
+				newcard += "</div class='card'>";
+				$("#cardholder").append(newcard);
+				$(".card span").hide();
+			});
+				$("#cardholder").on("click",".card",function(){
+				$(this).children("span").show();
+				$(this).children("h2").hide();
+				$(this).children("p").hide();
+			});
+		});
+</script>
+</head>
+<body>
+	<form>
+  	First Name:<br>
+  	<input type="text" id="fname"><br>
+  	Last Name:<br>
+  	<input type="text" id="lname"><br>
+  	Description:<br>
+  	<input type="text" id="desc"><br>
+	</form>
+<button>Add User</button>
+</body>
+<div id="cardholder">
+	<div class="card">
+	<h2>User Name</h2>
+	<p>Click for description!</p>
+	<span>This is the description.</span>
+	</div>
